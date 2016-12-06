@@ -46,7 +46,7 @@ The description of each of these functions/methods is provided in the docstring 
 
 Briefly, the algorithm works as follows:
 
-1. The ```fasta_iter``` method is called first to read the FASTA file and store the sequences in a dictionary.
+1. The ```fasta_iter``` method is called first to read the FASTA file and store the sequences in a dictionary values with header as keys.
 2. The ```generate_assembly``` method is next called on the input sequences from FASTA file to generate the assmbled sequence.
 3. The ```find_overlap``` method is called internally from ```generate_assembly``` to find the overlap. ```generate_assembly``` then internally joins the two given sequences together based on the overlap.
 4. The ```reverse_complement``` method is additionally called on the input/output of ```generate_assembly```, so as to take into account the fact that the input DNA sequence can come from either forward or reverse DNA strand.
