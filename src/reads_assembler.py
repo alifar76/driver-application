@@ -13,7 +13,7 @@ def fasta_iter(fasta_name):
     
     Returns
     -------
-    file_dict:
+    file_dict :
         A dictionary object with FASTA header as keys and DNA sequence as values
     """
     file_dict = {}
@@ -25,11 +25,35 @@ def fasta_iter(fasta_name):
         file_dict[header] = seq
     return file_dict    
 
-def reverse_complement(s):
-    return s.translate(maketrans('ACTG','TGAC'))[::-1]
+def reverse_complement(seq):
+    """ Creates reverse complement of given DNA sequence 
+    
+    Parameters
+    ----------
+    seq : A string object of letters A, C, T, G
+    representing the DNA sequence 
+
+    Returns
+    -------
+    seq.translate(maketrans('ACTG','TGAC'))[::-1] :
+        A reverse complemented string object of original seq
+    """
+    return seq.translate(maketrans('ACTG','TGAC'))[::-1]
 
 def find_overlap(read1,read2):
-    """ Given two reads, find the length of overlap between the two  """
+    """ Given two reads, find the length of overlap between the two
+
+    Parameters
+    ----------
+    read1, read2 : Two separate string object of letters A, C, T, G
+    representing the DNA sequence of two sequences being compared
+
+    Returns
+    -------
+    max(candidates_overlaps) or 0 :
+       An integer value indicating the number of 
+       overlapping bases between 2 given sequences
+    """
     # Returns a list with one element. The element is the no. of bp with which two read overlap
     candidates_overlaps = [l for l in range(min(len(read1),len(read2))/2, min(len(read1),len(read2))) 
     if read1[-l:] == read2[:l]]
@@ -37,6 +61,21 @@ def find_overlap(read1,read2):
     return max(candidates_overlaps) if len(candidates_overlaps)>0 else 0
 
 def generate_assembly(consensus,remaining_reads):
+    """ Generates assmebled sequence from given sequences
+
+    Parameters
+    ----------
+    consensus : A string object representing a consensus DNA sequence 
+    generated iteratively from two given reads.
+    remaining_reads : A list object containing DNA sequences that have 
+    not yet been assmebled
+
+    Returns
+    -------
+    consensus :
+       A string object containing the final DNA sequence 
+       assmebled from overlapping reads
+    """
     while len(remaining_reads)>0:
         # Return length of overlap and overlap read
         overlap_length, best_overlap = max( [(find_overlap(consensus,b), b) for b in remaining_reads], key = lambda x: x[0] )
