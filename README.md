@@ -41,3 +41,9 @@ As can be seen in the ```reads_assembler.py```, there are 4 Python functions in 
 - ```reverse_complement```
 - ```find_overlap```
 - ```generate_assembly```
+
+The description of each of these functions/methods is provided in the docstring along with the expected parameters and the output.
+
+Briefly, the algorithm works as follows:
+
+1. 
