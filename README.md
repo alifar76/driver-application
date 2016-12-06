@@ -18,7 +18,7 @@ All analysis were done on MacBook Pro, OS X El Capitan, Version 10.11.4. I used 
 How to use
 ------
 
-There's a single script to perform this task and is present in the src folder. The script is called:
+There's a single script to perform this task and is present in the ```src``` folder. The script is called:
 
 - ```reads_assembler.py```
 
