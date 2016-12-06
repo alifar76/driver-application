@@ -5,7 +5,17 @@ import argparse
 
 def fasta_iter(fasta_name):
     """ Given a fasta file. return dict with header as key, 
-    and sequence as value """
+    and sequence as value 
+
+    Parameters
+    ----------
+    fasta_name : Name of FASTA input file
+    
+    Returns
+    -------
+    file_dict:
+        A dictionary object with FASTA header as keys and DNA sequence as values
+    """
     file_dict = {}
     fh = open(fasta_name, 'rU')
     faiter = (x[1] for x in groupby(fh, lambda line: line[0] == ">"))
