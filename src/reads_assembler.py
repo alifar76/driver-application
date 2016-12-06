@@ -21,7 +21,8 @@ def reverse_complement(s):
 def find_overlap(read1,read2):
     """ Given two reads, find the length of overlap between the two  """
     # Returns a list with one element. The element is the no. of bp with which two read overlap
-    candidates_overlaps = [l for l in range(min(len(read1),len(read2))/2, min(len(read1),len(read2))) if read1[-l:] == read2[:l]]
+    candidates_overlaps = [l for l in range(min(len(read1),len(read2))/2, min(len(read1),len(read2))) 
+    if read1[-l:] == read2[:l]]
     # If two reads overlap, return the no. of overlapping bps, else return 0
     return max(candidates_overlaps) if len(candidates_overlaps)>0 else 0
 
@@ -43,7 +44,7 @@ if __name__ == '__main__':
     description='Assemble Reads Script',
     epilog='''
 An example to run the script:
-python reads_assembler.py -i input_reads.txt -p genome_assembled.txt
+python reads_assembler.py -i input_reads.txt -o genome_assembled.txt
     ''')
     parser.add_argument('-i', metavar='Input file', nargs=1, help='Name of input file with\
                         sequenced reads',required=True)
