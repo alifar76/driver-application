@@ -31,3 +31,13 @@ An example on how to run the script is:
 ```python reads_assembler.py -i input_reads.txt -o genome_assembled.txt```
 
 As seen from the example, the script takes in two arguments. The -i is the name of input file, which is FASTA file with the sequenced reads and -o is the name of the output file which is produced when the reads are assembled.
+
+Algorithm Details
+------
+
+As can be seen in the ```reads_assembler.py```, there are 4 Python functions in the script. They are:
+
+- ```fasta_iter```
+- ```reverse_complement```
+- ```find_overlap```
+- ```generate_assembly```
